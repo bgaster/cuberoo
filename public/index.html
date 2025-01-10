@@ -1,18 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cuberoo</title>
-</head>
-<body>
-  <header>
-    <h1>Cuberoo</h1>
-  </header>
-  <main>
-    <p>Hello
-Woo</p>
 
-  </main>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="cuberoo_ - researcher by day, musican by night"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,viewport-fit=cover"
+    />
+
+    <!--
+  
+    ♦ built with <3 by cuberoo_ (based on a site by paloma kop), 2025 ♦
+
+    ╔══════════════════════════════════════════╗
+    ║ This website and its contents are        ║
+    ║ released under a Creative Commons        ║
+    ║ Attribution-NonCommercial-ShareAlike     ║
+    ║ 4.0 International License.               ║
+    ╚══════════════════════════════════════════╝
+    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+    -->
+
+    <!-- page title -->
+    <title>cuberoo_</title>
+
+    <link rel="icon" type="image/x-icon" sizes="any" href="/imgs/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" />
+
+    <link href="/css/style.css" rel="stylesheet" />
+
+    <link href="https://indieweb.social/@cuberoo_" rel="me" />
+
+    <!-- css -->
+    <style>
+      :root {
+        --main-bg-color: #b0b490;
+        --main-bg-gradient: radial-gradient(#b0b490, #a0b590, #a0c690);
+      }
+    </style>
+
+    <!-- opengraph tags -->
+    <meta
+      property="og:description"
+      content="cuberoo_ - researcher by day, musican by night"
+    />
+    <meta
+      property="og:image"
+      content="/img/cuberoo_text3-1200w-k4lrZcioPc.png"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="column-container">
+        <header>
+          <h1>
+            <a href="/" class="current-link"
+              ><img
+                src="/imgs/cuberoo_text2.png"
+                id="header-image"
+                alt="cuberoo_"
+            /></a>
+          </h1>
+          <nav>
+            <ul>
+              <li>
+                <a href="/" class="current-link">about</a>
+              </li>
+              <li>
+                <a href="/work" class="">work</a>
+              </li>
+              <li>
+                <a href="/news" class="">news</a>
+              </li>
+
+              <li>
+                <a href="/contact" class="">contact</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main>
+          <div class="about-header">
+            <img
+              alt="Image of cuberoo in dots"
+              loading="lazy"
+              decoding="async"
+              style="aspect-ratio: 720/904; max-width: 100%; height: auto"
+              src="/img/cuberoo3-720w-6i9lscaaF2.png"
+              width="720"
+              height="904"
+            />
+
+            <div class="about-header-text"></div>
+          </div>
+
+          <div class="about-text">
+            <h2>
+              <img
+                src="./imgs/circle_lines.png"
+                class="about-title-graphic"
+                alt=""
+              />
+              bio
+            </h2>
+
+            <div>
+              <p>
+                I am a teacher and researcher at
+                <a href="https://people.uwe.ac.uk/Person/BenedictGaster"
+                  >University of West of England</a
+                >
+                and by night I make noise that I sometimes call music. My
+                current research interests focus around Expressive Computer
+                Interaction, with recent work looking at the design of new
+                muscial instruments. I'm exploring these notions through a
+                post-human lens, with a particular focus on Computing within
+                Limits and the immediate climate emergency.
+              </p>
+
+              <p>
+                I received a PhD in Computer Science, where I looked at the
+                theory of extensible datatypes in and around the programming
+                language Haskell, in 1999 and BSc in Computer Science in 1996. I
+                worked in Silicon Valley for many years, mostly at ATI/AMD, on
+                GPU hardware and software. Whilst I loved working there I now
+                question its social political and environmental impact and am
+                now trying to develop an alternative, more sensitive, approach
+                to tech.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <h2>
+              <img
+                src="./imgs/circular_practice5.png"
+                class="about-title-graphic"
+                style="width: 9ch; height: 7.4rem"
+                alt=""
+              />
+              circular making practice
+            </h2>
+
+            <p>TODO</p>
+            <p>...</p>
+          </div>
+
+          <div class="about-text">
+            <h2>
+              <img src="./imgs/wool.png" class="about-title-graphic" alt="" />
+              find me Elsewhere
+            </h2>
+
+            <nav>
+              <ul>
+                <li>
+                  <a
+                    href="https://indieweb.social/@cuberoo_"
+                    target="_blank"
+                    rel="noopener"
+                    >mastodon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://instagram.com/cuberoo_"
+                    target="_blank"
+                    rel="noopener"
+                    >instagram</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/bgaster"
+                    target="_blank"
+                    rel="noopener"
+                    >github</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <svg id="filters">
+            <defs>
+              <filter id="threshold">
+                <feColorMatrix
+                  in="SourceGraphic"
+                  type="matrix"
+                  values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 255 -100"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </main>
+
+        <footer>
+          <p>Page last updated: January 10, 2025</p>
+
+          <ul>
+            <li>
+              <a href="#">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/up_arrow.svg"
+                  alt=""
+                />
+                <span>Top of page</span>
+              </a>
+            </li>
+            <li>
+              <a href="/contact">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/contact.svg"
+                  alt=""
+                />
+                <span>Contact</span>
+              </a>
+            </li>
+            <li>
+              <a href="/colophon">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/info.svg"
+                  alt=""
+                />
+                <span>Colophon</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://webring.xxiivv.com/#random"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/xxiivv_webring.svg"
+                  alt=""
+                />
+                <span>Webring</span>
+              </a>
+            </li>
+            <li>
+              <div class="license-icons">
+                <a
+                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                  target="_blank"
+                  rel="noopener"
+                  title="Creative Commons License - Attribution Non-Commercial Share Alike"
+                >
+                  <img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/cc.svg"
+                    alt="Creative Commons License"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/by.svg"
+                    alt="Attribution"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/nc.svg"
+                    alt="Non-Commercial"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/sa.svg"
+                    alt="Share Alike"
+                  />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </body>
 </html>

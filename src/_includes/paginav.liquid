@@ -1,0 +1,27 @@
+<nav class="bold paginav">
+  <ul>
+    <li>
+      <a href="{{ pagination.href.first }}{{ paginationAnchor }}" data-direction="backwards" {% unless pagination.href.previous %}class="unavailable"{% endunless %}>
+        <span style="letter-spacing:-0.11em;">&lt;</span>&lt;
+      </a>
+    </li>
+    <li>
+      <a href="{{ pagination.href.previous }}{{ paginationAnchor }}" data-direction="backwards" {% unless pagination.href.previous %}class="unavailable"{% endunless %}>
+        &lt;
+      </a>
+    </li>
+    <li>
+      <b>Page {{ pagination.pageNumber | plus: 1 }}<span class="divider">/</span>{{ pagination.pages | size }}</b>
+    </li>
+    <li>
+      <a href="{{ pagination.href.next }}{{ paginationAnchor }}" data-direction="forwards" {% unless pagination.href.next %}class="unavailable"{% endunless %}>
+        &gt;
+      </a>
+    </li>
+    <li>
+      <a href="{{ pagination.href.last }}{{ paginationAnchor }}" data-direction="forwards" {% unless pagination.href.next %}class="unavailable"{% endunless %}>
+        <span style="letter-spacing:-0.11em;">&gt;</span>&gt;
+      </a>
+    </li>
+  </ul>
+</nav>

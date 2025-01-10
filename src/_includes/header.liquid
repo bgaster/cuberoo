@@ -1,0 +1,25 @@
+<header>
+  <h1><a href="/" class="{% if page.url == "/" %}current-link{% endif %}"><img src="/imgs/cuberoo_text2.png" id="header-image" alt="cuberoo_"/></a></h1>
+  <nav>
+    <ul>
+      <li>
+        <a href="/" class="{% if page.url == "/" %}current-link{% endif %}">about</a>
+      </li>
+      <li>
+        <a href="/work" class="{% if page.url == "/work/" %}current-link{% endif %}">work</a>
+      </li>
+      <li>
+        <a href="/news" class="{% if page.url == "/news/" %}current-link{% endif %}">news</a>
+      </li>
+      {% comment %} <li>
+        <a href="/ongoing" class="{% if page.url == "/ongoing/" %}current-link{% endif %}">ongoing</a>
+      </li> {% endcomment %}
+      <li>
+        <a href="/contact" class="{% if page.url == "/contact/" %}current-link{% endif %}">contact</a>
+      </li>
+      {% comment %} <li>
+        <a href="/links" class="{% if page.url == "/links/" %}current-link{% endif %}">links</a>
+      </li> {% endcomment %}
+    </ul>
+  </nav>
+</header>

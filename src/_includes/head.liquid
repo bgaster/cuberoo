@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="{{description}}">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+
+    <!--
+  
+    ♦ built with <3 by cuberoo_ (based on a site by paloma kop), 2025 ♦
+
+    ╔══════════════════════════════════════════╗
+    ║ This website and its contents are        ║
+    ║ released under a Creative Commons        ║
+    ║ Attribution-NonCommercial-ShareAlike     ║
+    ║ 4.0 International License.               ║
+    ╚══════════════════════════════════════════╝
+    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+    -->
+
+  <!-- page title -->
+  <title>{{title}}{% unless title == "cuberoo_" %} {% endunless %}</title>
+
+  <link rel="icon" type="image/x-icon" sizes="any" href="/imgs/favicon.ico">
+  <link rel="alternate" type="application/rss+xml">
+  {% comment %} href="/rss.xml" /> {% endcomment %}
+  <link href="/css/style.css" rel="stylesheet">
+
+  {% if dark %}
+  <link href="/css/dark.css" rel="stylesheet">
+  {% endif %}
+
+  <link href="https://indieweb.social/@cuberoo_" rel="me">
+
+  {% if customStyleSheet %}
+  <link href="/css/{{customStyleSheet}}.css" rel="stylesheet">
+  {% endif %}
+
+  {% if customStyle %}
+  <!-- css -->
+  <style>
+  {{ customStyle }}
+  </style>
+  {% endif %}
+
+  {% if bgImage %}
+  <style>
+  :root {
+    --main-bg-gradient:none;
+    --main-bg-color:#000000;
+  }
+  .bg {
+    background-image:url('{{bgImage}}');
+    {% if bgImageOpacity %}opacity:{{bgImageOpacity}};{% endif %}
+  }
+  </style>
+  {% endif %}
+
+
+  <!-- opengraph tags -->
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:image" content="{% imageUrl thumbnail 1200 %}">
+
+  {% if lightbox %}
+  <!-- simple lightbox -->
+  <link href="/css/slb.css" rel="stylesheet">
+  <script src="/js/slb.js"></script>
+  {% endif %}
+
+   {% if musicPlayer %}
+  <!-- music player -->
+  <link href="/css/musicplayer.css" rel="stylesheet">
+  <script src="/js/musicplayer.js"></script>
+  {% endif %}
+
+</head>

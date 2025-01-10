@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Project exploring the idea of compile once, run anywhere for audio DSP code"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,viewport-fit=cover"
+    />
+
+    <!--
+  
+    ♦ built with <3 by cuberoo_ (based on a site by paloma kop), 2025 ♦
+
+    ╔══════════════════════════════════════════╗
+    ║ This website and its contents are        ║
+    ║ released under a Creative Commons        ║
+    ║ Attribution-NonCommercial-ShareAlike     ║
+    ║ 4.0 International License.               ║
+    ╚══════════════════════════════════════════╝
+    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+    -->
+
+    <!-- page title -->
+    <title>Audio Anywhere</title>
+
+    <link rel="icon" type="image/x-icon" sizes="any" href="/imgs/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" />
+
+    <link href="/css/style.css" rel="stylesheet" />
+
+    <link href="https://indieweb.social/@cuberoo_" rel="me" />
+
+    <!-- opengraph tags -->
+    <meta
+      property="og:description"
+      content="Project exploring the idea of compile once, run anywhere for audio DSP code"
+    />
+    <meta
+      property="og:image"
+      content="/img/vl1-emulation-screenshot-1200w-wTrx7i5LRp.png"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="column-container">
+        <header>
+          <h1>
+            <a href="/" class=""
+              ><img
+                src="/imgs/cuberoo_text2.png"
+                id="header-image"
+                alt="cuberoo_"
+            /></a>
+          </h1>
+          <nav>
+            <ul>
+              <li>
+                <a href="/" class="">about</a>
+              </li>
+              <li>
+                <a href="/work" class="">work</a>
+              </li>
+              <li>
+                <a href="/news" class="">news</a>
+              </li>
+
+              <li>
+                <a href="/contact" class="">contact</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main>
+          <nav class="top bold">
+            <ul>
+              <li>
+                <a href="/work">&lt; Back to Selected Work</a>
+              </li>
+            </ul>
+          </nav>
+
+          <h2><em>Audio Anywhere</em>, 2020</h2>
+          <img src="/imgs/nime2021_aa_screenshot.jpg" alt="" />
+          <p>
+            The ideal of compile once and run anywhere has been a dream in
+            computer science for as long as it has been an area of research.
+            From the early days of Lisp, through to Java and Python with its
+            import ideal. However, to date these offerings, as amazing as they
+            are, have failed to reach performance close to what system languages
+            C and C++ can achieve.
+          </p>
+          <p>
+            Over the last few years a new kid on the block has emerged as an
+            interesting inflection point in the search for a compile once, run
+            anywhere target for compiling system based languages. WebAssembly
+            (or Wasm) is an open standard, originally developed by the four main
+            browser vendors, specifying a portable format for executable
+            programs, including interfaces for facilitating interactions between
+            such programs and their host environment.
+          </p>
+          <p>
+            The goal of Audio Anywhere is to explore the idea of compile once,
+            run anywhere for audio DSP code. Audio Anywhere combines Faust, for
+            audio DSP code, and HTML5 to enable development of modern audio
+            synthesis and effects tools. The Faust DSP code is complied once
+            into WebAssembly, but unlike early work the resulting audio code is
+            not hosted within a browser, but instead translated on the fly to
+            native code running within a hosting application. This means that,
+            in theory, an Audio Anywhere module can run anywhere, including
+            platforms where browsers are not available. For the initial
+            implementation of Audio Anywhere, UIs can be described and
+            implemented in HTML5, but this is not a requirement, as the control
+            component is independent of the audio component. This enables
+            interfaces to range from conventional plugin GUIs, remote
+            controllers connected via the Internet of Musical Things, to
+            Embedded hardware interfaces.
+          </p>
+          <h1>Papers</h1>
+          <div class="about-text">
+            <h2>
+              <img
+                src="/imgs/aa_nime_text_logo.png"
+                class="about-title-graphic"
+                style="width: 9ch; height: 7.4rem"
+                alt=""
+              />
+            </h2>
+            <p>
+              Gaster, Benedict. R. and Challinor, Ryan. (2021) Bespoke Anywhere.
+              NIME'21: Proceedings of the 21st New Interfaces for Musical
+              Expression, June 2021.
+            </p>
+          </div>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/UkzqccmCmIo?si=Q6CmoSbqO5EARi9d"
+            title="NIME 2021 Presentation"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <p><a href="/imgs/bespoke_anywhere.pdf">Paper</a></p>
+          <hr />
+          <p>
+            Gaster, Benedict R. and Cole, Max. (2020) Audio Anywhere with Faust.
+            Proceedings of the 2nd International Faust Conference (IFC-20),
+            December 2020.
+          </p>
+          <p><a href="/imgs/aa_faust2020-final.pdf">Paper</a></p>
+          <h1>Source code</h1>
+          <p>There are currently three main repos for this work:</p>
+          <ul>
+            <li>
+              <a href="https://github.com/bgaster/aa_examples">AA example</a>
+            </li>
+            <li>
+              <a href="https://github.com/bgaster/aa_standalone"
+                >AA standalone app</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/bgaster/aa_wasmtime"
+                >AA Wasmtime runtime</a
+              >
+            </li>
+          </ul>
+
+          <nav class="bottom bold">
+            <ul>
+              <li>
+                <a href="/work/muses/">&lt; Muses</a>
+              </li>
+              <li>
+                <a href="/work/chime2024/"
+                  >In between: ghostly control through ~~slowness and~~ the
+                  relational &gt;</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </main>
+
+        <footer>
+          <p>Page last updated: January 10, 2025</p>
+
+          <ul>
+            <li>
+              <a href="#">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/up_arrow.svg"
+                  alt=""
+                />
+                <span>Top of page</span>
+              </a>
+            </li>
+            <li>
+              <a href="/contact">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/contact.svg"
+                  alt=""
+                />
+                <span>Contact</span>
+              </a>
+            </li>
+            <li>
+              <a href="/colophon">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/info.svg"
+                  alt=""
+                />
+                <span>Colophon</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://webring.xxiivv.com/#random"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/xxiivv_webring.svg"
+                  alt=""
+                />
+                <span>Webring</span>
+              </a>
+            </li>
+            <li>
+              <div class="license-icons">
+                <a
+                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                  target="_blank"
+                  rel="noopener"
+                  title="Creative Commons License - Attribution Non-Commercial Share Alike"
+                >
+                  <img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/cc.svg"
+                    alt="Creative Commons License"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/by.svg"
+                    alt="Attribution"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/nc.svg"
+                    alt="Non-Commercial"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/sa.svg"
+                    alt="Share Alike"
+                  />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

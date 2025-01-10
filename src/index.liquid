@@ -1,0 +1,91 @@
+---
+layout: default
+customStyle: >
+  :root {
+    --main-bg-color:#b0b490;
+    --main-bg-gradient:radial-gradient(#b0b490, #a0b590, #a0c690);
+  }
+---
+
+<div class="about-header">
+
+  {% image "./imgs/cuberoo3.png", "Image of cuberoo in dots", 720, "" %}
+
+  <div class="about-header-text">
+
+    
+  </div>
+
+</div>
+
+<div class="about-text">
+
+
+
+  <h2><img src="./imgs/circle_lines.png" class="about-title-graphic" alt=""/> bio</h2>
+
+
+  <div>
+    <p>
+      I am a teacher and researcher at <a href="https://people.uwe.ac.uk/Person/BenedictGaster">University of West of England</a>
+      and by night I make noise that I sometimes call music.
+      My current research interests focus around Expressive Computer Interaction, with recent work 
+      looking at the design of new muscial instruments. I'm exploring these notions through a 
+      post-human lens, with a particular focus on Computing within Limits and the immediate climate emergency. 
+    </p>
+  
+    <p>
+      I received a PhD in Computer Science, where I looked at the theory of extensible datatypes 
+      in and around the programming language Haskell, in 1999 and BSc in Computer Science in 1996.
+      I worked in Silicon Valley for many years, mostly at ATI/AMD, on GPU hardware and software.
+      Whilst I loved working there I now question its social political and environmental impact 
+      and am now trying to develop an alternative, more sensitive, approach to tech.
+    </p>
+  </div>
+ 
+</div>
+
+<div class="about-text">
+
+  <h2>
+    <img src="./imgs/circular_practice5.png" class="about-title-graphic" style="width:9ch;height:7.4rem;" alt=""/> circular making practice
+  </h2>
+
+  <p>
+    TODO
+  </p>
+  <p>
+    ...
+  </p>
+
+</div>
+
+<div class="about-text">
+
+  <h2>
+    <img src="./imgs/wool.png" class="about-title-graphic" alt=""/> find me Elsewhere
+  </h2>
+
+  <nav>
+
+    {% include "socials.liquid" %}
+
+  </nav>
+
+</div>
+
+<svg id="filters">
+  <defs>
+    <filter id="threshold">
+      <feColorMatrix in="SourceGraphic"
+          type="matrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 255 -100" />
+    </filter>
+  </defs>
+</svg>
+
+
+

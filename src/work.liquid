@@ -1,0 +1,35 @@
+---
+layout: wide
+title: projects
+customStyle: >
+  :root {
+    --main-bg-color:#b0b490;
+    --main-bg-gradient:radial-gradient(#b0b490, #a0b590, #a0c690);
+  }
+---
+
+
+<h2>Recent projects</h2>
+
+<div class="gallery">
+
+{% assign workCollection = collections.work | sort: "data.workYear" | reverse %}
+
+{%- for work in workCollection -%}
+  <div class="gallery-item">
+    <a href="{{ work.url }}">
+    {% image work.data.thumbnail, work.data.thumbnailAlt, 1440, "" %}
+    <div class="caption">
+      <h2><span class="title">{{ work.data.title }}</span>, {{ work.data.workYear }}</h2>
+      <p>{{ work.data.description }}</p>
+      <p class="tags">
+      {%- for tag in work.data.workTags -%}
+      <span>{{ tag }}</span>
+      {%- endfor -%}
+      </p>
+    </div>
+    </a>
+  </div>
+  {%- endfor -%}
+
+</div>

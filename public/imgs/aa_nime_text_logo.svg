@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 612 792">
+  <!-- Generator: Adobe Illustrator 29.2.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 108)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #231f20;
+        font-family: IBMPlexMono, 'IBM Plex Mono';
+        font-size: 18px;
+      }
+
+      .st1 {
+        stroke-width: 5px;
+      }
+
+      .st1, .st2 {
+        fill: none;
+        stroke: #f3b839;
+        stroke-linecap: round;
+      }
+
+      .st2 {
+        stroke-width: 8px;
+      }
+    </style>
+    <path id="path" d="M447.57,334.15c0,90.17-73.1,163.27-163.27,163.27s-163.27-73.1-163.27-163.27,73.1-163.27,163.27-163.27,163.27,73.1,163.27,163.27Z"/>
+    <path id="path1" d="M420.95,339.65c0,72.43-58.72,131.15-131.15,131.15s-131.15-58.72-131.15-131.15,58.72-131.15,131.15-131.15,131.15,58.72,131.15,131.15Z"/>
+  </defs>
+  <text>
+    <textPath startOffset="93.9%" xlink:href="#path"><tspan class="st0"><tspan x="0" y="0">Audio Anywhere. Gaster, Benedict. R. and Challinor, Ryan. (2021).NIME&apos;21: Proceedings of the </tspan></tspan>
+    </textPath></text>
+  <text>
+    <textPath startOffset="93.9%" xlink:href="#path1"><tspan class="st0"><tspan x="0" y="0" xml:space="preserve">www.muses-dmi.github.io                                  nime2021.org</tspan></tspan>
+    </textPath></text>
+  <text/>
+  <path class="st2" d="M218.15,283.43v149.56M218.15,283.43l74.78,149.56M218.15,283.43l149.56,149.56M218.15,283.43c61.92,0,112.17,16.75,112.17,37.39M330.32,320.82c20.64,0,37.39,50.25,37.39,112.17h0M270.5,380.65l22.43-22.43M270.5,380.65c-14.96,19.97-32.38,27.44-52.35,22.43"/>
+  <path class="st1" d="M330.32,320.82l14.96-14.96"/>
+</svg>
