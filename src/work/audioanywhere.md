@@ -52,8 +52,7 @@ via the Internet of Musical Things, to Embedded hardware interfaces.
   </p>
 </div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UkzqccmCmIo?si=Q6CmoSbqO5EARi9d" 
-title="NIME 2021 Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe title="aa_nime2021_finalv1" width="560" height="315" src="https://cuddly.tube/videos/embed/dc5f0a3c-447d-4ad9-9510-f6ac92856e69" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
 
 [Paper](/imgs/bespoke_anywhere.pdf)
 
