@@ -78,6 +78,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/button.gif");
   eleventyConfig.addPassthroughCopy("./imgs");
   eleventyConfig.addPassthroughCopy("./music");
+  eleventyConfig.addPassthroughCopy("./courses");
 
   eleventyConfig.addPlugin(pluginRss);
 
