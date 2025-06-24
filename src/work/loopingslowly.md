@@ -40,4 +40,4 @@ More information can be found ...
 ## Contributors
 
 Loop Slowly is a project by [cuberoo_](/), with contributions from [Nathan Renney](https://people.uwe.ac.uk/Person/NathanRenney),
-[Jasmine Butt](), and others.
+[Jasmine Butt](https://camera-noise.co.uk/), and others.
