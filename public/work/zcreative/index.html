@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Exploring Zig, distributed music control."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,viewport-fit=cover"
+    />
+
+    <!--
+  
+    ♦ built with <3 by cuberoo_ (based on a site by paloma kop), 2025 ♦
+
+    ╔══════════════════════════════════════════╗
+    ║ This website and its contents are        ║
+    ║ released under a Creative Commons        ║
+    ║ Attribution-NonCommercial-ShareAlike     ║
+    ║ 4.0 International License.               ║
+    ╚══════════════════════════════════════════╝
+    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+    -->
+
+    <!-- page title -->
+    <title>Z Creative</title>
+
+    <link rel="icon" type="image/x-icon" sizes="any" href="/imgs/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" />
+
+    <link href="/css/style.css" rel="stylesheet" />
+
+    <link href="https://indieweb.social/@cuberoo_" rel="me" />
+
+    <!-- opengraph tags -->
+    <meta
+      property="og:description"
+      content="Exploring Zig, distributed music control."
+    />
+    <meta
+      property="og:image"
+      content="/img/zcreative_logo-820w-9a7z97n23C.png"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="column-container">
+        <header>
+          <h1>
+            <a href="/" class=""
+              ><img
+                src="/imgs/cuberoo_text2.png"
+                id="header-image"
+                alt="cuberoo_"
+            /></a>
+          </h1>
+          <nav>
+            <ul>
+              <li>
+                <a href="/" class="">about</a>
+              </li>
+              <li>
+                <a href="/work" class="">work</a>
+              </li>
+              <li>
+                <a href="/news" class="">news</a>
+              </li>
+
+              <li>
+                <a href="/contact" class="">contact</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main>
+          <nav class="top bold">
+            <ul>
+              <li>
+                <a href="/work">&lt; Back to Selected Work</a>
+              </li>
+            </ul>
+          </nav>
+
+          <h2><em>Z Creative</em>, 2025</h2>
+          <p>
+            Z Creative is a project where I am exploring the notion of
+            distributed performance. In particular, I want to look at using the
+            <a href="https://ziglang.org/">Zig programming language</a> to build
+            a system for musical performance that allows for controllers to be
+            connected via a network.
+          </p>
+          <p>
+            Currently, my current plan is for there to be a centrialized server
+            that can stream audio, over a websocket, where the audio is
+            generated at and on the server, while control is distributed, i.e.
+            parameters can be performed from anywhere on the network. Only
+            control messages are sent from a user/performer to the server, while
+            the server can send both control and audio in real time. It is
+            possible for a user/performer to send audio data, but not real
+            time---what this means, I am not currently 100% sure.
+          </p>
+          <p>
+            This is a system of constraints, in paritcular I'd like to explore
+            latency as a key creative driver. However, the notion of remoteness
+            or 'anywhere but here' is also a creative tool that is intended to
+            be be lent into. What does it mean to be 'anywhere but here', in the
+            context of a shared musical performance?
+          </p>
+          <h2>More info</h2>
+          <p>More information can be found ...</p>
+
+          <nav class="bottom bold">
+            <ul>
+              <li>
+                <a href="/work/loopingslowly/">&lt; Looping Slowly</a>
+              </li>
+              <li>
+                <a href="/work/chime2024/"
+                  >In between: ghostly control through ~~slowness and~~ the
+                  relational &gt;</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </main>
+
+        <footer>
+          <p>Page last updated: August 3, 2025</p>
+
+          <ul>
+            <li>
+              <a href="#">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/up_arrow.svg"
+                  alt=""
+                />
+                <span>Top of page</span>
+              </a>
+            </li>
+            <li>
+              <a href="/contact">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/contact.svg"
+                  alt=""
+                />
+                <span>Contact</span>
+              </a>
+            </li>
+            <li>
+              <a href="/colophon">
+                <img
+                  src="https://s3.amazonaws.com/palomakop.tv/icons/info.svg"
+                  alt=""
+                />
+                <span>Colophon</span>
+              </a>
+            </li>
+
+            <li>
+              <div class="license-icons">
+                <a
+                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                  target="_blank"
+                  rel="noopener"
+                  title="Creative Commons License - Attribution Non-Commercial Share Alike"
+                >
+                  <img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/cc.svg"
+                    alt="Creative Commons License"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/by.svg"
+                    alt="Attribution"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/nc.svg"
+                    alt="Non-Commercial"
+                  /><img
+                    src="https://s3.amazonaws.com/palomakop.tv/icons/sa.svg"
+                    alt="Share Alike"
+                  />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
