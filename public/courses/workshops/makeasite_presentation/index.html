@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 	<link rel="stylesheet" href="css/layout.css" />
 	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
 	<style type="text/css">
 		.reveal .slide-background-content {
 			position: absolute;
@@ -124,7 +125,7 @@
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="../assets/warning.png" alt="" style="object-fit: scale-down">
+<img src="../assets/Pasted image 20250823114700.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -268,6 +269,155 @@ npx http-server
 <br>
 
 [https://www.11ty.dev/](https://www.11ty.dev/)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## What Is Eleventy?
+
+<br>
+
+Eleventy, also known as 11ty, is a static site generator that creates websites powered by HTML, CSS, and JavaScript.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Getting started
+
+```bash
+mkdir <dir>
+cd <dir>
+npm init -y
+npm install @11ty/eleventy --save-dev
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### thats it!
+
+```bash
+npx @11ty/eleventy
+```
+
+```bash
+[11ty] Wrote 0 files in 0.01 seconds (v2.0.0)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Ok there is not a lot going on here, as currently your project has no templates :-)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### 11ty Commands and Configuration
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- ```npx @11ty/eleventy```
+- ```npx @11ty/eleventy --serve```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## no need to memorise (package.json)
+
+```json
+"scripts": { 
+   "build": "npx @11ty/eleventy", 
+   "start": "npx @11ty/eleventy --serve", 
+},
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### 11ty is “zero-config” by default
+
+To configure 11ty put the file *.eleventy.js* in your projects root folder, and add:
+
+```javascript
+module.exports = function (eleventyConfig) { 
+  return { 
+    dir: { 
+      input: 'src', 
+    },
+   };
+};
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+mkdir src
+```
+
+```html
+<!DOCTYPE html> 
+<html lang="en"> 
+   <head> <meta charset="UTF-8" ></meta> <meta http-equiv="X-UA-Compatible" content="IE=edge" ></meta> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" ></meta>   
+  .    <title>My Static Site</title> 
+   </head> 
+   <body> 
+	   Hello from my site! 
+   </body> 
+  </html>
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+npm run build
+```
+
+will create ```_site``` directory.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+npm start
+```
+
+This will serve your site on [http://localhost:8080/](http://localhost:8080/).
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<iframe width="638" height="359" src="https://www.youtube.com/embed/BKdQEXqfFA0" title="Build an 11ty Site in 3 Minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+
+[Text (blog) version.](https://11ty.rocks/posts/create-your-first-basic-11ty-website/)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+├── node_modules/  
+├── public/ 
+├── src/ 
+       ├── _includes
+        ├── base.njk 
+       ├── layouts 
+       ├── assets 
+       └── css  
+         ├── style.css
+├── .eleventy.js 
+├── .gitignore 
+└── package.json
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Now you know how a basic website works... let's consider [starter projects](https://www.11ty.dev/docs/starter/)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Git
+
+- Git is a "version control system.
+- Basically this allows you to manage your site by storing it on the 'internet' and making copies and edits of the source base.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+To copy (clone) a git starter project:
+
+```bash
+git clone <url-path-to-project>
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
