@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<style type="text/css">
+		.reveal .slide-background-content {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-color: #154c79;
+			/* background:url('https://cuberoo.uk/img/loop_bck.png') */
+		}
+
+		p.rightpar {text-align: right}
+	</style>
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="ECI/attachments/eci-full-white.svg" alt="" style="width: 200px; object-fit: fill">
+
+<font size=10.5>Pointers</font> 
+
+
+<font size=6>Benedict R. Gaster (he/him)
+
+<font size=5>@cuberoo\_@indieweb.social</font>
+
+<img src="export/nime25_presentation/attachments/stickperson3.gif" alt="" style="width: 100px; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Based on [Learning Zig](https://www.openmymind.net/learning_zig/language_overview_1/#) by Karl Seguin
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Zig doesn't include a garbage collector.
+
+- The burden of managing memory is on you, the developer.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Can you guess the output of the following?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+const std = @import("std");
+
+pub fn main() void {
+	var user = User{
+		.id = 1,
+		.power = 100,
+	};
+
+	// this line has been added
+	levelUp(user);
+	std.debug.print("User {d} has power of {d}\n", .{user.id, user.power});
+}
+
+fn levelUp(user: User) void {
+	user.power += 1;
+}
+
+pub const User = struct {
+	id: u64,
+	power: i32,
+};
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Bit unfair as it won't compile, but why?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+fn levelUp(user: User) void {
+	var u = user;
+	u.power += 1;
+}
+```
+
+Now our program will compile, but it will not work!
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+in `main`, we create a `User`.
+
+```text
+user -> ------------ (id)
+        |    1     |
+        ------------ (power)
+        |   100    |
+        ------------
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Since `id` is a 64 bit integer, it takes 8 bytes of memory. Therefore, `power` has to be at $start_address + 8
+
+```text
+user ->   ------------  (id: 1043368d0)
+          |    1     |
+          ------------  (power: 1043368d8)
+          |   100    |
+          ------------
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+pub fn main() void {
+	const user = User{
+		.id = 1,
+		.power = 100,
+	};
+	std.debug.print("{*}\n{*}\n{*}\n", .{&user, &user.id, &user.power});
+}
+```
+
+Note the use of the addressof operator (`&`)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```text
+learning.User@1043368d0
+u64@1043368d0
+i32@1043368d8
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- The addressof operator returns a pointer to a value. 
+- A pointer to a value is a distinct type. 
+- The address of a value of type `T` is a `*T`. We pronounce that a pointer to T.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+So if we take the address of `user`, we'll get a `*User`, or a pointer to `User`
+
+```zig
+pub fn main() void {
+	var user = User{
+		.id = 1,
+		.power = 100,
+	};
+	user.power += 0;
+
+	const user_p = &user;
+	std.debug.print("{any}\n", .{@TypeOf(user_p)});
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+pub fn main() void {
+	var user = User{
+		.id = 1,
+		.power = 100,
+	};
+	user.power += 0;
+
+	// added this
+	std.debug.print("main: {*}\n", .{&user});
+
+	levelUp(user);
+	std.debug.print("User {d} has power of {d}\n", .{user.id, user.power});
+}
+
+fn levelUp(user: User) void {
+	// add this
+	std.debug.print("levelUp: {*}\n", .{&user});
+	var u = user;
+	u.power += 1;
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Of course running this, we get two different addresses!
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Remember Zig passes a copy of the value!
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+const std = @import("std");
+
+pub fn main() void {
+	var user = User{
+		.id = 1,
+		.power = 100,
+	};
+
+	// no longer needed
+	// user.power += 1;
+
+	// user -> &user
+	levelUp(&user);
+	std.debug.print("User {d} has power of {d}\n", .{user.id, user.power});
+}
+
+// User -> *User
+fn levelUp(user: *User) void {
+	user.power += 1;
+}
+
+pub const User = struct {
+	id: u64,
+	power: i32,
+};
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Pointer to Pointer
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```text
+main:
+user -> ------------  (id: 1043368d0)  <---
+        |    1     |                      |
+        ------------  (power: 1043368d8)  |
+        |   100    |                      |
+        ------------                      |
+                                          |
+        .............  empty space        |
+        .............  or other data      |
+                                          |
+levelUp:                                  |
+user -> -------------  (*User)            |
+        | 1043368d0 |----------------------
+        -------------
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Some languages require a different symbol when accessing a field through a pointer.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+fn levelUp(user: *User) void {
+	std.debug.print("{*}\n{*}\n", .{&user, user});
+	user.power += 1;
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+If `user` is a `*User`, then what is `&user`? It's a `**User`, or a _pointer to a pointer to a `User`.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+The purpose here is to show that pointers aren't special, they're just a value, which is an address, and a type.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Nested Pointers
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- Up until now, our `User` has been simple, containing two integers. 
+- It's easy to visualize its memory and, when we talk about "copying", there isn't any ambiguity. 
+- What happens when `User` becomes more complex and contains a pointer?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+pub const User = struct {
+	id: u64,
+	power: i32,
+	name: []const u8,
+};
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```text
+user -> -------------  (id: 1043368d0)
+        |     1     |
+        -------------  (power: 1043368d8)
+        |    100    |
+        -------------  (name.len: 1043368dc)
+        |     4     |
+        -------------  (name.ptr: 1043368e4)
+  ------| 1182145c0 |
+  |     -------------
+  |
+  |     .............  empty space
+  |     .............  or other data
+  |
+  --->  -------------  (1182145c0)
+        |    'G'    |
+        -------------
+        |    'o'    |
+        -------------
+        |    'k'    |
+        -------------
+        |    'u'    |
+        -------------
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- The new `name` field is a slice which is made up of a `len` and `ptr` field. 
+- Laid out in sequence along with all the other fields. On a 64 bit platform both `len` and `ptr` will be 64 bits, or 8 bytes. 
+- The interesting part is the value of `name.ptr`: it's an address to some other place in memory.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+in our original code where `levelUp` took a plain `User` and Zig provided a copy, how would that look now that we have a nested pointer?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- The answer is that only a shallow copy of the value is made.
+- i.e. only the memory immediately addressable by the variable is copied.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```text
+main: user ->    -------------  (id: 1043368d0)
+                 |     1     |
+                 -------------  (power: 1043368d8)
+                 |    100    |
+                 -------------  (name.len: 1043368dc)
+                 |     4     |
+                 -------------  (name.ptr: 1043368e4)
+                 | 1182145c0 |-------------------------
+levelUp: user -> -------------  (id: 1043368ec)       |
+                 |     1     |                        |
+                 -------------  (power: 1043368f4)    |
+                 |    100    |                        |
+                 -------------  (name.len: 1043368f8) |
+                 |     4     |                        |
+                 -------------  (name.ptr: 104336900) |
+                 | 1182145c0 |-------------------------
+                 -------------                        |
+                                                      |
+                 .............  empty space           |
+                 .............  or other data         |
+                                                      |
+                 -------------  (1182145c0)        <---
+                 |    'G'    |
+                 -------------
+                 |    'o'    |
+                 -------------
+                 |    'k'    |
+                 -------------
+                 |    'u'    |
+                 -------------
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- So we can see that shallow copying will work.
+- Since a pointer's value is an address, copying the value means we get the same address.
+- This has important implications with respect to mutability.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+const std = @import("std");
+
+pub fn main() void {
+	var name = [4]u8{'G', 'o', 'k', 'u'};
+	const user = User{
+		.id = 1,
+		.power = 100,
+		// slice it, [4]u8 -> []u8
+		.name = name[0..],
+	};
+	levelUp(user);
+	std.debug.print("{s}\n", .{user.name});
+}
+
+fn levelUp(user: User) void {
+	user.name[2] = '!';
+}
+
+pub const User = struct {
+	id: u64,
+	power: i32,
+	// []const u8 -> []u8
+	name: []u8
+};
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- The above code prints "Go!u". 
+- We had to change `name`'s type from `[]const u8` to `[]u8` and instead of a string literal, which are always immutable, create an array and slice it.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Recursive Structures
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- Sometimes you need a structure to be recursive. 
+- Keeping our existing code, let's add an optional `manager` of type `?User` to our `User`.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+const std = @import("std");
+
+pub fn main() void {
+	const leto = User{
+		.id = 1,
+		.power = 9001,
+		.manager = null,
+	};
+
+	const duncan = User{
+		.id = 1,
+		.power = 9001,
+		.manager = leto,
+	};
+
+	std.debug.print("{any}\n{any}", .{leto, duncan});
+}
+
+pub const User = struct {
+	id: u64,
+	power: i32,
+	manager: ?User,
+};
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- OK, this code won't compile: 
+	- struct 'learning.User' depends on itself. 
+	- This fails because every type has to have a known compile-time size.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- Solution: use a pointer
+- A pointer has a fixed size (`usize`)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```zig
+const std = @import("std");
+
+pub fn main() void {
+	const leto = User{
+		.id = 1,
+		.power = 9001,
+		.manager = null,
+	};
+
+	const duncan = User{
+		.id = 1,
+		.power = 9001,
+		// changed from leto -> &leto
+		.manager = &leto,
+	};
+
+	std.debug.print("{any}\n{any}", .{leto, duncan});
+}
+
+pub const User = struct {
+	id: u64,
+	power: i32,
+	// changed from ?const User -> ?*const User
+	manager: ?*const User,
+};
+```
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":false,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
