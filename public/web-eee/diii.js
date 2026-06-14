@@ -1819,7 +1819,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new diiiApp();
 
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js').catch((error) => {
+        navigator.serviceWorker.register('/web-eee/sw.js').catch((error) => {
             console.error('Service worker registration failed:', error);
         });
     }
