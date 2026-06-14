@@ -1,7 +1,7 @@
 :root {
-    --bg-default: #1e1e1e;
-    --bg-surface: #252526;
-    --bg-subdued: #2d2d30;
+    --bg-default: #5e81ac;
+    --bg-surface: #3e3e42;
+    --bg-subdued: #81a1c1;
     --neutral-medium: #8b8b8b;
     --neutral-heavy: #cccccc;
     --neutral-trim: #3e3e42;
@@ -334,7 +334,7 @@ body.is-resizing-explorer * {
 .file-first-pill {
     border: 0;
     background-color: var(--neutral-heavy);
-    color: #000;
+    color: #8fbcbb;
     font-family: monospace;
     font-size: 0.68rem;
     line-height: 1;
