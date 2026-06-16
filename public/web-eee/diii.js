@@ -243,7 +243,7 @@ class diiiApp {
         this.renderFileList();
 
         this.outputLine('//// based on diii from monome.org.');
-        this.outputLine('//// welcome. connect to an eee compatible device to begin.');
+        this.outputLine('//// welcome. connect to an -- --- .-. .--. .... compatible device to begin.');
     }
 
     cacheElements() {
@@ -1246,7 +1246,7 @@ class diiiApp {
 
     async refreshUploadAndRunLastScript() {
         if (!this.iiiDevice.isConnected) {
-            this.outputLine('no iii device connected.');
+            this.outputLine('no -- --- .-. .--. .... device connected.');
             return;
         }
 
@@ -1796,18 +1796,18 @@ class diiiApp {
 
     showHelp() {
         this.outputLine('');
-        this.outputLine(' diii helpers:');
+        this.outputLine(' -- --- .-. .--. .... helpers:');
         this.outputLine(' h            show this help');
         this.outputLine(' u            open file picker (same as upload button)');
         this.outputLine(' r            re-upload and run last uploaded script');
         this.outputLine(' Cmd/Ctrl+Shift+C  connect/disconnect');
         this.outputLine('');
-        this.outputLine(' common iii commands:');
+        this.outputLine(' common -- --- .-. .--. .... commands:');
         this.outputLine(' ^^i          init');
         this.outputLine(' ^^c          clean init');
         this.outputLine(' help()       print iii api');
         this.outputLine('');
-        this.outputHTML('Docs: <a href="https://monome.org/docs/iii/code" target="_blank" rel="noopener noreferrer">monome.org/docs/iii/code</a>\n');
+        this.outputHTML('Docs: <a href="https://cuberoo.uk/docs/morph/code" target="_blank" rel="noopener noreferrer">monome.org/docs/morph/code</a>\n');
     }
 
     delay(ms) {
