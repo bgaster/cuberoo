@@ -2,7 +2,7 @@
 tags: work
 title: "Z Creative"
 workTags: ["music", "research", "project"]
-workYear: "2025 "
+workYear: "2026 "
 description: Exploring Zig, distributed music control. 
 thumbnail: ./imgs/zcreative_logo.png
 thumbnailAlt: Z Creative logo.
@@ -12,21 +12,26 @@ dark: false
 
 ## *{{title}}*, {{workYear}}
 
-Z Creative is a project where I am exploring the notion of distributed performance. In particular, 
-I want to look at using the [Zig programming language](https://ziglang.org/) to build a system for 
-musical performance that allows for controllers to be connected via a network. 
+<img src="/imgs/zcreative_splash.jpg" alt=""/>
 
-Currently, my current 
-plan is for there to be a centrialized server that can stream audio, over a websocket, where the audio 
-is generated at and on the server, while control is distributed, i.e. parameters can be performed from
-anywhere on the network. Only control messages are sent from a user/performer to the server, while the server
-can send both control and audio in real time. It is possible for a user/performer to send audio data, but not 
-real time---what this means, I am not currently 100% sure.
+Zcreative is a project about sound and by extension the design of musical instruments through the window of shared play, memory, place, and materiality. It looks at NIME design within the context of storytelling. Exploring the design of a distributed musical controller and its use for performance and tabletop role-playing games that incorporate sound. What does it mean for a musical performance to be a community, or a game to create a story on the one hand and be an instrument on the other? We play with this question through the design of a new musical instrument toolkit, zcreative, which is a set of autonomously connected controls, forming a network of concurrent controllers, that manipulate a whole. zcreative is explored through three examples, considering what a NIME might be in a web of interactions. FM for 8 phones is a multi-channel spatial sound performance, where the listeners are also performers; radical interaction opens up a NIME themed podcast through community listening; and pebble is a sound driven tabletop role-playing game, where sound is first class and forms an additional creative axis for storytelling.
 
-This is a system of constraints, in paritcular I'd like to explore latency as a key creative driver. However, the notion of remoteness
-or 'anywhere but here' is also a creative tool that is intended to be be lent into. What does it mean to be 'anywhere
-but here', in the context of a shared musical performance? 
+## Papers
+
+Proceedings of the conference New Instruments for Musical Expression, 2026. [NIME'26](https://nime2026.org).
+
+[paper pdf](https://nime.org/proceedings/2026/nime2026_27.pdf)
 
 ## More info
 
-More information can be found ...
+### A performance of FM for 8 phones at [The Bridge Studios](https://www.uwe.ac.uk/research/centres-and-groups/cate-research-overview/the-bridge-studios)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZIhcfFVG8kU?si=pdO6wykGfV5AxYxB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Pebble
+
+pebble is a world-building game exploring sound as an aid for storytelling. Player’s search for a way home by exploring locations where rocks abound.
+
+In pebble 3-6 players create lost explorers, discover strange lands, cursed people, exploring deadly landscapes of different locations. With fellow travelers they discuss how to survive and, when everything has been explored, choose a route home.
+
+[Pebble game rules](/imgs/anywhere_game.pdf)
