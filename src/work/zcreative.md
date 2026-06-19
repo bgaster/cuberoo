@@ -22,6 +22,8 @@ Proceedings of the conference New Instruments for Musical Expression, 2026. [NIM
 
 [paper pdf](https://nime.org/proceedings/2026/nime2026_27.pdf)
 
+[presentation](/presentations/nime2026)
+
 ## More info
 
 ### A performance of FM for 8 phones at [The Bridge Studios](https://www.uwe.ac.uk/research/centres-and-groups/cate-research-overview/the-bridge-studios)
